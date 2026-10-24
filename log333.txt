@@ -1,0 +1,145 @@
+Jones:~# source /mnt/d/Academics/college/material\ modelling/project/qnn_linux/bin/activate
+(qnn_linux) root@DavyJones:~# cd "/mnt/d/Academics/college/material modelling/project/qh9_scf_rebuild/qh9_scf"
+(qnn_linux) root@DavyJones:/mnt/d/Academics/college/material modelling/project/qh9_scf_rebuild/qh9_scf# python tests/test_pure.py
+PASS test_density_construction
+using table: data
+100%|██████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 11285.12it/s]
+PASS test_flat_pipeline_from_sqlite
+PASS test_layout
+PASS test_old_trace_layer_is_insufficient
+PASS test_s_norm_is_basis_invariant
+PASS test_scalar_only_network_is_blind
+PASS test_superblock_roundtrip
+(qnn_linux) root@DavyJones:/mnt/d/Academics/college/material modelling/project/qh9_scf_rebuild/qh9_scf# OMP_NUM_THREADS=1 MKL_THREADING_LAYER=GNU python tests/test_equivariance.py
+PASS test_ao_convention_with_pyscf
+PASS test_assembly_isometry
+PASS test_model_equivariance
+PASS test_sh_convention
+(qnn_linux) root@DavyJones:/mnt/d/Academics/college/material modelling/project/qh9_scf_rebuild/qh9_scf# python scripts/train.py --root ~/qh9_flat --subset 5000 --epochs 100 --bs 4 --workers 0 --out ckpt_5k.pt
+params=0.62M  scale=0.3033 Ha  device=cuda  train/val/test=4000/500/500
+epoch   0  train MAE 8.057e-03 Ha  val MAE 3.228e-03 Ha  (105s)
+epoch   1  train MAE 3.036e-03 Ha  val MAE 2.581e-03 Ha  (96s)
+epoch   2  train MAE 2.459e-03 Ha  val MAE 2.128e-03 Ha  (102s)
+epoch   3  train MAE 2.293e-03 Ha  val MAE 2.216e-03 Ha  (97s)
+epoch   4  train MAE 2.087e-03 Ha  val MAE 1.828e-03 Ha  (97s)
+epoch   5  train MAE 1.986e-03 Ha  val MAE 2.041e-03 Ha  (93s)
+epoch   6  train MAE 1.880e-03 Ha  val MAE 1.856e-03 Ha  (96s)
+epoch   7  train MAE 1.773e-03 Ha  val MAE 2.116e-03 Ha  (95s)
+epoch   8  train MAE 1.717e-03 Ha  val MAE 1.648e-03 Ha  (93s)
+epoch   9  train MAE 1.672e-03 Ha  val MAE 1.464e-03 Ha  (95s)
+epoch  10  train MAE 1.594e-03 Ha  val MAE 1.534e-03 Ha  (94s)
+epoch  11  train MAE 1.553e-03 Ha  val MAE 1.647e-03 Ha  (96s)
+epoch  12  train MAE 1.515e-03 Ha  val MAE 1.379e-03 Ha  (95s)
+epoch  13  train MAE 1.491e-03 Ha  val MAE 1.309e-03 Ha  (95s)
+epoch  14  train MAE 1.428e-03 Ha  val MAE 1.623e-03 Ha  (95s)
+epoch  15  train MAE 1.402e-03 Ha  val MAE 1.348e-03 Ha  (94s)
+epoch  16  train MAE 1.375e-03 Ha  val MAE 1.361e-03 Ha  (93s)
+epoch  17  train MAE 1.349e-03 Ha  val MAE 1.239e-03 Ha  (93s)
+epoch  18  train MAE 1.327e-03 Ha  val MAE 1.318e-03 Ha  (94s)
+epoch  19  train MAE 1.290e-03 Ha  val MAE 1.247e-03 Ha  (93s)
+epoch  20  train MAE 1.283e-03 Ha  val MAE 1.248e-03 Ha  (93s)
+epoch  21  train MAE 1.260e-03 Ha  val MAE 1.332e-03 Ha  (95s)
+epoch  22  train MAE 1.229e-03 Ha  val MAE 1.323e-03 Ha  (93s)
+epoch  23  train MAE 1.223e-03 Ha  val MAE 1.128e-03 Ha  (97s)
+epoch  24  train MAE 1.215e-03 Ha  val MAE 1.255e-03 Ha  (98s)
+epoch  25  train MAE 1.209e-03 Ha  val MAE 1.207e-03 Ha  (96s)
+epoch  26  train MAE 1.167e-03 Ha  val MAE 1.086e-03 Ha  (94s)
+epoch  27  train MAE 1.165e-03 Ha  val MAE 1.140e-03 Ha  (94s)
+epoch  28  train MAE 1.135e-03 Ha  val MAE 1.137e-03 Ha  (94s)
+epoch  29  train MAE 1.123e-03 Ha  val MAE 1.020e-03 Ha  (95s)
+epoch  30  train MAE 1.103e-03 Ha  val MAE 1.094e-03 Ha  (94s)
+epoch  31  train MAE 1.100e-03 Ha  val MAE 1.120e-03 Ha  (93s)
+epoch  32  train MAE 1.085e-03 Ha  val MAE 1.048e-03 Ha  (96s)
+epoch  33  train MAE 1.079e-03 Ha  val MAE 1.001e-03 Ha  (93s)
+epoch  34  train MAE 1.072e-03 Ha  val MAE 1.129e-03 Ha  (94s)
+epoch  35  train MAE 1.061e-03 Ha  val MAE 1.093e-03 Ha  (94s)
+epoch  36  train MAE 1.033e-03 Ha  val MAE 1.022e-03 Ha  (96s)
+epoch  37  train MAE 1.027e-03 Ha  val MAE 1.072e-03 Ha  (96s)
+epoch  38  train MAE 1.012e-03 Ha  val MAE 9.887e-04 Ha  (97s)
+epoch  39  train MAE 1.011e-03 Ha  val MAE 9.995e-04 Ha  (97s)
+epoch  40  train MAE 9.917e-04 Ha  val MAE 1.033e-03 Ha  (96s)
+epoch  41  train MAE 9.878e-04 Ha  val MAE 9.287e-04 Ha  (96s)
+epoch  42  train MAE 9.735e-04 Ha  val MAE 9.492e-04 Ha  (96s)
+epoch  43  train MAE 9.677e-04 Ha  val MAE 9.228e-04 Ha  (95s)
+epoch  44  train MAE 9.477e-04 Ha  val MAE 9.214e-04 Ha  (96s)
+epoch  45  train MAE 9.474e-04 Ha  val MAE 9.039e-04 Ha  (96s)
+epoch  46  train MAE 9.390e-04 Ha  val MAE 9.100e-04 Ha  (95s)
+epoch  47  train MAE 9.240e-04 Ha  val MAE 9.101e-04 Ha  (98s)
+epoch  48  train MAE 9.174e-04 Ha  val MAE 8.956e-04 Ha  (97s)
+epoch  49  train MAE 9.061e-04 Ha  val MAE 9.119e-04 Ha  (96s)
+epoch  50  train MAE 9.050e-04 Ha  val MAE 8.699e-04 Ha  (97s)
+epoch  51  train MAE 8.890e-04 Ha  val MAE 8.629e-04 Ha  (97s)
+epoch  52  train MAE 8.863e-04 Ha  val MAE 8.676e-04 Ha  (96s)
+epoch  53  train MAE 8.777e-04 Ha  val MAE 8.521e-04 Ha  (102s)
+epoch  54  train MAE 8.618e-04 Ha  val MAE 8.535e-04 Ha  (108s)
+epoch  55  train MAE 8.592e-04 Ha  val MAE 8.386e-04 Ha  (114s)
+epoch  56  train MAE 8.448e-04 Ha  val MAE 8.212e-04 Ha  (107s)
+epoch  57  train MAE 8.403e-04 Ha  val MAE 8.341e-04 Ha  (107s)
+epoch  58  train MAE 8.389e-04 Ha  val MAE 8.220e-04 Ha  (105s)
+epoch  59  train MAE 8.264e-04 Ha  val MAE 8.098e-04 Ha  (105s)
+epoch  60  train MAE 8.167e-04 Ha  val MAE 8.018e-04 Ha  (107s)
+epoch  61  train MAE 8.103e-04 Ha  val MAE 7.966e-04 Ha  (98s)
+epoch  62  train MAE 8.052e-04 Ha  val MAE 8.059e-04 Ha  (95s)
+epoch  63  train MAE 7.970e-04 Ha  val MAE 7.890e-04 Ha  (94s)
+epoch  64  train MAE 7.947e-04 Ha  val MAE 7.883e-04 Ha  (94s)
+epoch  65  train MAE 7.894e-04 Ha  val MAE 7.695e-04 Ha  (96s)
+epoch  66  train MAE 7.785e-04 Ha  val MAE 7.612e-04 Ha  (92s)
+epoch  67  train MAE 7.754e-04 Ha  val MAE 7.625e-04 Ha  (94s)
+epoch  68  train MAE 7.728e-04 Ha  val MAE 7.549e-04 Ha  (94s)
+epoch  69  train MAE 7.608e-04 Ha  val MAE 7.479e-04 Ha  (92s)
+epoch  70  train MAE 7.560e-04 Ha  val MAE 7.463e-04 Ha  (95s)
+epoch  71  train MAE 7.515e-04 Ha  val MAE 7.423e-04 Ha  (95s)
+epoch  72  train MAE 7.470e-04 Ha  val MAE 7.508e-04 Ha  (93s)
+epoch  73  train MAE 7.432e-04 Ha  val MAE 7.297e-04 Ha  (94s)
+epoch  74  train MAE 7.368e-04 Ha  val MAE 7.260e-04 Ha  (94s)
+epoch  75  train MAE 7.339e-04 Ha  val MAE 7.409e-04 Ha  (94s)
+epoch  76  train MAE 7.292e-04 Ha  val MAE 7.266e-04 Ha  (93s)
+epoch  77  train MAE 7.240e-04 Ha  val MAE 7.183e-04 Ha  (94s)
+epoch  78  train MAE 7.204e-04 Ha  val MAE 7.270e-04 Ha  (94s)
+epoch  79  train MAE 7.169e-04 Ha  val MAE 7.157e-04 Ha  (94s)
+epoch  80  train MAE 7.151e-04 Ha  val MAE 7.041e-04 Ha  (94s)
+epoch  81  train MAE 7.097e-04 Ha  val MAE 7.043e-04 Ha  (94s)
+epoch  82  train MAE 7.064e-04 Ha  val MAE 7.009e-04 Ha  (93s)
+epoch  83  train MAE 7.044e-04 Ha  val MAE 6.995e-04 Ha  (94s)
+epoch  84  train MAE 7.016e-04 Ha  val MAE 6.988e-04 Ha  (93s)
+epoch  85  train MAE 6.997e-04 Ha  val MAE 6.976e-04 Ha  (95s)
+epoch  86  train MAE 6.957e-04 Ha  val MAE 6.919e-04 Ha  (94s)
+epoch  87  train MAE 6.940e-04 Ha  val MAE 6.921e-04 Ha  (93s)
+epoch  88  train MAE 6.916e-04 Ha  val MAE 6.918e-04 Ha  (94s)
+epoch  89  train MAE 6.904e-04 Ha  val MAE 6.876e-04 Ha  (94s)
+epoch  90  train MAE 6.888e-04 Ha  val MAE 6.868e-04 Ha  (93s)
+epoch  91  train MAE 6.864e-04 Ha  val MAE 6.847e-04 Ha  (95s)
+epoch  92  train MAE 6.859e-04 Ha  val MAE 6.870e-04 Ha  (93s)
+epoch  93  train MAE 6.846e-04 Ha  val MAE 6.833e-04 Ha  (92s)
+epoch  94  train MAE 6.837e-04 Ha  val MAE 6.829e-04 Ha  (95s)
+epoch  95  train MAE 6.822e-04 Ha  val MAE 6.823e-04 Ha  (94s)
+epoch  96  train MAE 6.819e-04 Ha  val MAE 6.818e-04 Ha  (94s)
+epoch  97  train MAE 6.812e-04 Ha  val MAE 6.815e-04 Ha  (92s)
+epoch  98  train MAE 6.808e-04 Ha  val MAE 6.813e-04 Ha  (93s)
+epoch  99  train MAE 6.803e-04 Ha  val MAE 6.813e-04 Ha  (94s)
+best val MAE (Ha): 0.0006812534366552114 -> ckpt_5k.pt
+(qnn_linux) root@DavyJones:/mnt/d/Academics/college/material modelling/project/qh9_scf_rebuild/qh9_scf# python scripts/benchmark_scf.py --root ~/qh9_flat --ckpt ckpt_5k.pt --xc b3lyp5 -n 20 --csv scf_results.csv
+[7586] atoms=17 minao=10  ml=12  oracle= 1  RIC=1.20 speedup=0.52 dE=2.3e-10
+[19316] atoms=16 minao= 9  ml=11  oracle= 1  RIC=1.22 speedup=0.86 dE=2.2e-09
+[14533] atoms=15 minao=10  ml=13  oracle= 1  RIC=1.30 speedup=0.76 dE=1.8e-09
+[2947] atoms=14 minao=10  ml=12  oracle= 1  RIC=1.20 speedup=0.79 dE=2.1e-10
+[8939] atoms=16 minao=10  ml=12  oracle= 1  RIC=1.20 speedup=0.69 dE=2.6e-09
+[7161] atoms=14 minao=10  ml=13  oracle= 1  RIC=1.30 speedup=1.61 dE=5.9e-11
+[4502] atoms=13 minao=11  ml=16  oracle= 4  RIC=1.45 speedup=0.65 dE=2.7e-09
+[14490] atoms=13 minao=10  ml=12  oracle= 4  RIC=1.20 speedup=1.03 dE=7.4e-10
+[19672] atoms=17 minao=10  ml=13  oracle= 1  RIC=1.30 speedup=0.54 dE=3.6e-10
+[16341] atoms=22 minao= 9  ml=11  oracle= 1  RIC=1.22 speedup=0.86 dE=6.0e-10
+[3660] atoms=14 minao=10  ml=16  oracle= 1  RIC=1.60 speedup=0.42 dE=1.8e-10
+[13262] atoms=17 minao=11  ml=19  oracle= 1  RIC=1.73 speedup=0.58 dE=4.6e-10
+[10886] atoms=15 minao=11  ml=15  oracle= 4  RIC=1.36 speedup=0.68 dE=1.3e-09
+[4309] atoms=14 minao=11  ml=16  oracle= 1  RIC=1.45 speedup=0.70 dE=1.8e-10
+[2846] atoms=15 minao=10  ml=14  oracle= 1  RIC=1.40 speedup=0.73 dE=1.4e-10
+[8909] atoms=17 minao=11  ml=14  oracle= 1  RIC=1.27 speedup=0.80 dE=2.9e-10
+[8932] atoms=18 minao=10  ml=14  oracle= 1  RIC=1.40 speedup=0.75 dE=5.5e-10
+[12115] atoms=24 minao= 8  ml=11  oracle= 1  RIC=1.38 speedup=0.75 dE=8.9e-10
+[18177] atoms=16 minao=10  ml=14  oracle= 1  RIC=1.40 speedup=0.74 dE=1.3e-09
+[1624] atoms=17 minao=10  ml=13  oracle= 1  RIC=1.30 speedup=0.79 dE=1.8e-10
+
+=== SUMMARY (valid = converged and |dE| < e-tol) ===
+valid 20/20 | cycle reduction vs minao: -34.8% | median RIC 1.30 | median wall speedup 0.74x | oracle cycles 1.4
+(qnn_linux) root@DavyJones:/mnt/d/Academics/college/material modelling/project/qh9_scf_rebuild/qh9_scf#
